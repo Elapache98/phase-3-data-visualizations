@@ -46,11 +46,13 @@ let dataset = [
     /*** 14/02/23 ***/
     { xHappinessRating: 3, yMinutesOnYoutube: 214, wonGame: null },
     /*** 15/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 102, wonGame: true },
+    { xHappinessRating: 3, yMinutesOnYoutube: 102, wonGame: null },
     /*** 16/02/23 ***/
-    { xHappinessRating: 4, yMinutesOnYoutube: 165, wonGame: null },
+    { xHappinessRating: 4, yMinutesOnYoutube: 165, wonGame: false },
     /*** 17/02/23 ***/
-    { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null }
+    { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null },
+    /*** 18/02/23 ***/
+    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null }
 ];
 
 let happinessRange = d3.scaleLinear()
@@ -85,13 +87,20 @@ circles.attr("r", 8)
             return "green";
         } else { return "orange"; }
     })
+    /*** here this function considers the radi of the circles. I added another property to the data set
+     * that takes into considerations days where Manchester United played to see whether days the play affect my mood and 
+     * how that correlates with the minutes I spend on Youtube. Days where United play will typically have bigger
+     * circles than days when Manchester United don't play. If Manchester United wins - the circle is the biggest
+     * If Manchester United, draw or lose, the circle is medium
+     * if Manchester United, do not play the circle is rather quite small
+     */
     .attr("r", function (value) {
         if (value.wonGame === true) {
             return 8;
         } else if (value.wonGame === false) {
-            return 3;
+            return 5;
         } else {
-            return 4;
+            return 3;
         }
 
     });
