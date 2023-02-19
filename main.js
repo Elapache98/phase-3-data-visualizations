@@ -38,19 +38,19 @@ let dataset = [
      y= minutes spent on Youtube/day
      ***/
     /*** 11/02/23 ***/
-    { x: 3, y: 10 },
+    { xHappinessRating: 3, yMinutesOnYoutube: 10, wonGame: null },
     /*** 12/02/23 ***/
-    { x: 4.5, y: 237 },
+    { xHappinessRating: 4.5, yMinutesOnYoutube: 237, wonGame: true },
     /*** 13/02/23 ***/
-    { x: 3, y: 90 },
+    { xHappinessRating: 3, yMinutesOnYoutube: 90, wonGame: null },
     /*** 14/02/23 ***/
-    { x: 3, y: 214 },
+    { xHappinessRating: 3, yMinutesOnYoutube: 214, wonGame: null },
     /*** 15/02/23 ***/
-    { x: 3, y: 102 },
+    { xHappinessRating: 3, yMinutesOnYoutube: 102, wonGame: true },
     /*** 16/02/23 ***/
-    { x: 4, y: 165 },
+    { xHappinessRating: 4, yMinutesOnYoutube: 165, wonGame: null },
     /*** 17/02/23 ***/
-    { x: 2, y: 100 }
+    { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null }
 ];
 
 let happinessRange = d3.scaleLinear()
@@ -65,12 +65,12 @@ let circles = svg.selectAll("circle")
     .data(dataset)
     .join("circle");
 
-circles.attr("r", 5)
+circles.attr("r", 8)
     .attr("cx", function (value) {
-        return happinessRange(value.x);
+        return happinessRange(value.xHappinessRating);
     })
     .attr("cy", function (value) {
-        return minutesOnYoutube(value.y);
+        return minutesOnYoutube(value.yMinutesOnYoutube);
     })
     .attr("fill", function (value)
     /****  the function takes into consideration the value of the x axis to depict what color the circle would be
@@ -79,11 +79,21 @@ circles.attr("r", 5)
     green = more than 3
     (0-sad & black circles  3- average & orange circles 5-very happy & green circles)
     this provides an easier way to visually discern how my my mood and my increase or decrease in youtube consumption are correlated****/ {
-        if (value.x < 3) {
+        if (value.xHappinessRating < 3) {
             return "black";
-        } else if (value.x > 3) {
+        } else if (value.xHappinessRating > 3) {
             return "green";
         } else { return "orange"; }
+    })
+    .attr("r", function (value) {
+        if (value.wonGame === true) {
+            return 8;
+        } else if (value.wonGame === false) {
+            return 3;
+        } else {
+            return 4;
+        }
+
     });
 
 /**** label the axes ****/
