@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+
     <title>Ade Obayomi Homework #6</title>
     <script src="d3.min.js"></script>
 </head>
@@ -18,10 +20,26 @@
             that same day I can start to see if my hypothesis is conclusive on inconclusive based off of patterns,
             correlations and trends discovered once more data is collected.</p>
         <h2>Legend:</h2>
-        <li>🟢 - Happy Mood</li>
-        <li>🟠 - Average Mood</li>
-        <li>⚫ - Sad Mood</li>
-    </div>
+        <div class="legend-container">
+            <ul class="legend">
+                <p><b>Color breakdown</b></p>
+                <li>🟢 - Happy Mood</li>
+                <br>
+                <li>🟠 - Average Mood</li>
+                <br>
+                <li>⚫ - Sad Mood</li>
+            </ul>
+            <ul class="legend">
+                <p><b>Size breakdown</b></p>
+
+                <li><b>Big Circles</b> = Manchester United played a game that day, and won.</li>
+                <br>
+                <li><b>Medium sized Circles</b> = Manchester United played a game that day, and either drew or lost.
+                </li>
+                <br>
+                <li><b>Small sized Circles</b> = Manchester United did not play a game that day.</li>
+            </ul>
+        </div>
 </body>
 
 <script src="main.js"></script>
