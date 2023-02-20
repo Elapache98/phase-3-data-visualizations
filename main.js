@@ -52,7 +52,9 @@ let dataset = [
     /*** 17/02/23 ***/
     { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null },
     /*** 18/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null }
+    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null },
+    /*** 19/02/23 ***/
+    { xHappinessRating: 4, yMinutesOnYoutube: 60, wonGame: true }
 ];
 
 let happinessRange = d3.scaleLinear()
