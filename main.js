@@ -147,7 +147,7 @@ let yAxisMaxValue = svg.append("text")
 /* I learned about the tooltip functionality from previous courses and researched a way to use the tool tip in the 
 d3.library. I thought it would make the data more intuitive for viewers. Here the function is just 
 pulling the values of the datasets for each circle and shows the user what these values are when hovered
-source: https://www.pluralsight.com/guides/create-tooltips-in-d3js*/
+source: https://www.pluralsight.com/guides/create-tooltips-in-d3js */
 circles.append("title")
     .text(function (value) {
         return "Happiness Rating: " + value.xHappinessRating + "\nMinutes on YouTube: " + value.yMinutesOnYoutube + "\nWon Game: " + value.wonGame;
