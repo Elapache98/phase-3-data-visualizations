@@ -52,7 +52,9 @@ let dataset = [
     /*** 17/02/23 ***/
     { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null },
     /*** 18/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null }
+    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null },
+    /*** 19/02/23 ***/
+    { xHappinessRating: 4, yMinutesOnYoutube: 60, wonGame: true }
 ];
 
 let happinessRange = d3.scaleLinear()
@@ -147,7 +149,7 @@ let yAxisMaxValue = svg.append("text")
 /* I learned about the tooltip functionality from previous courses and researched a way to use the tool tip in the 
 d3.library. I thought it would make the data more intuitive for viewers. Here the function is just 
 pulling the values of the datasets for each circle and shows the user what these values are when hovered
-source: https://www.pluralsight.com/guides/create-tooltips-in-d3js*/
+source: https://www.pluralsight.com/guides/create-tooltips-in-d3js */
 circles.append("title")
     .text(function (value) {
         return "Happiness Rating: " + value.xHappinessRating + "\nMinutes on YouTube: " + value.yMinutesOnYoutube + "\nWon Game: " + value.wonGame;
