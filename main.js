@@ -38,23 +38,25 @@ let dataset = [
      y= minutes spent on Youtube/day
      ***/
     /*** 11/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 10, wonGame: null },
+    { xHappinessRating: 3, yMinutesOnYoutube: 10, manchesterUnitedWon: null },
     /*** 12/02/23 ***/
-    { xHappinessRating: 4.5, yMinutesOnYoutube: 237, wonGame: true },
+    { xHappinessRating: 4.5, yMinutesOnYoutube: 237, manchesterUnitedWon: true },
     /*** 13/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 90, wonGame: null },
+    { xHappinessRating: 3, yMinutesOnYoutube: 90, manchesterUnitedWon: null },
     /*** 14/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 214, wonGame: null },
+    { xHappinessRating: 3, yMinutesOnYoutube: 214, manchesterUnitedWon: null },
     /*** 15/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 102, wonGame: null },
+    { xHappinessRating: 3, yMinutesOnYoutube: 102, manchesterUnitedWon: null },
     /*** 16/02/23 ***/
-    { xHappinessRating: 4, yMinutesOnYoutube: 165, wonGame: false },
+    { xHappinessRating: 4, yMinutesOnYoutube: 165, manchesterUnitedWon: false },
     /*** 17/02/23 ***/
-    { xHappinessRating: 2, yMinutesOnYoutube: 100, wonGame: null },
+    { xHappinessRating: 2, yMinutesOnYoutube: 100, manchesterUnitedWon: null },
     /*** 18/02/23 ***/
-    { xHappinessRating: 3, yMinutesOnYoutube: 39, wonGame: null },
+    { xHappinessRating: 3, yMinutesOnYoutube: 39, manchesterUnitedWon: null },
     /*** 19/02/23 ***/
-    { xHappinessRating: 4, yMinutesOnYoutube: 60, wonGame: true }
+    { xHappinessRating: 4, yMinutesOnYoutube: 60, manchesterUnitedWon: true },
+
+    { xHappinessRating: 4, yMinutesOnYoutube: 128, manchesterUnitedWon: null },
 ];
 
 let happinessRange = d3.scaleLinear()
@@ -97,9 +99,9 @@ circles.attr("r", 8)
      * if Manchester United, do not play the circle is rather quite small
      */
     .attr("r", function (value) {
-        if (value.wonGame === true) {
+        if (value.manchesterUnitedWon === true) {
             return 8;
-        } else if (value.wonGame === false) {
+        } else if (value.manchesterUnitedWon === false) {
             return 5;
         } else {
             return 3;
@@ -152,6 +154,6 @@ pulling the values of the datasets for each circle and shows the user what these
 source: https://www.pluralsight.com/guides/create-tooltips-in-d3js */
 circles.append("title")
     .text(function (value) {
-        return "Happiness Rating: " + value.xHappinessRating + "\nMinutes on YouTube: " + value.yMinutesOnYoutube + "\nWon Game: " + value.wonGame;
+        return "Happiness Rating: " + value.xHappinessRating + "\nMinutes on Youtube: " + value.yMinutesOnYoutube + "\nManchester United Win: " + value.manchesterUnitedWon;
     });
 
