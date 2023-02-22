@@ -55,8 +55,10 @@ let dataset = [
     { xHappinessRating: 3, yMinutesOnYoutube: 39, manchesterUnitedWon: null },
     /*** 19/02/23 ***/
     { xHappinessRating: 4, yMinutesOnYoutube: 60, manchesterUnitedWon: true },
-
+    /*** 20/02/23 ***/
     { xHappinessRating: 4, yMinutesOnYoutube: 128, manchesterUnitedWon: null },
+    /*** 21/02/23 ***/
+    { xHappinessRating: 3.5, yMinutesOnYoutube: 135, manchesterUnitedWon: null },
 ];
 
 let happinessRange = d3.scaleLinear()
@@ -80,14 +82,14 @@ circles.attr("r", 8)
     })
     .attr("fill", function (value)
     /****  the function takes into consideration the value of the x axis to depict what color the circle would be
-    grey = less than 3
-    orange = 3
-    green = more than 3
-    (0-sad & black circles  3- average & orange circles 5-very happy & green circles)
+    black = less than 3
+    orange = less than 3.5 but more than 3
+    green = more than 3.5
+    (0-sad & black circles  - average & orange circles 5-very happy & green circles)
     this provides an easier way to visually discern how my my mood and my increase or decrease in youtube consumption are correlated****/ {
         if (value.xHappinessRating < 3) {
             return "black";
-        } else if (value.xHappinessRating > 3) {
+        } else if (value.xHappinessRating > 3.5) {
             return "green";
         } else { return "orange"; }
     })
@@ -100,7 +102,7 @@ circles.attr("r", 8)
      */
     .attr("r", function (value) {
         if (value.manchesterUnitedWon === true) {
-            return 8;
+            return 10;
         } else if (value.manchesterUnitedWon === false) {
             return 5;
         } else {
